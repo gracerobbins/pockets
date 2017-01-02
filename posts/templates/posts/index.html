@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'posts/home.css' %}" />
+{% if latest_post_list %}
+	<ul>
+	{% for item in latest_post_list %}
+		<li><a href="{% url 'posts:detail' item.id %}">{{ item.item_name }}</li><!make a bullet point with a url link to the polls:detail url for that question number>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>There are no posts yet.</p>
+{% endif %}
