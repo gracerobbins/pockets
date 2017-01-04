@@ -3,6 +3,8 @@ from . import views
 
 app_name = 'posts'
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<pk>[A-Za-z0-9_]+)/$', views.DetailView.as_view(), name='detail')
+#    url(r'^form/', views.NewItemView.as_view(), name='form'),
+	url(r'^form/', views.new_item, name='form'),
+    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^', views.IndexView.as_view(), name='index'),
 ]

@@ -1,5 +1,6 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'posts/home.css' %}" />
+<h1><a href="{% url 'posts:form' %}">Click here to add a new item</h1>
 {% if latest_post_list %}
 	<ul>
 	{% for item in latest_post_list %}

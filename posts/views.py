@@ -4,10 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .models import Item
 from django.utils import timezone
+from .forms import ItemForm
 
-
-#def index(request):
- #   return HttpResponse("Hello, world. This is the posts page")
 
 class IndexView(generic.ListView):
 	template_name = 'posts/index.html'
@@ -23,5 +21,60 @@ class DetailView(generic.DetailView):
 	def get_queryset(self):
 		return Item.objects.filter(pub_date__lte=timezone.now())
 
-#def details(request):
-#	return HttpResponse("this is the detail page for a post")#
+def new_item(request):
+	template_name = 'posts/form.html'
+
+
+	#return HttpResponse("this is where a new item form goes")
+	# if this is a POST request we need to process the form data
+	if request.method == 'POST':
+		# create a form instance and populate it with data from the request:
+		form = ItemForm(request.POST)
+		# check whether it's valid:
+		if form.is_valid():
+			# process the data in form.cleaned_data as required
+			form_name = form.cleaned_data['name']
+			form_description = form.cleaned_data['description']
+			form_link = form.cleaned_data['form_link']
+			form_price = form.cleaned_data['form_price']
+			new_item = Item(item_name=form_name, item_description=form_description, pub_date=timezone.now(), link=form_link, price=form_price)
+			print new_item
+			new_item.save()
+			# redirect to a new URL:
+			return HttpResponseRedirect(reverse('posts:index'))
+
+	#if a GET (or any other method) we'll create a blank form
+	else:
+		form = ItemForm()
+
+	return render(request, 'posts/form.html', {'form': form})
+'''class NewItemView(generic.ListView):
+	template_name = 'posts/form.html'
+	
+	def post(self):
+		return self.submit()
+
+	def submit(request):
+		#return HttpResponse("this is where a new item form goes")
+		# if this is a POST request we need to process the form data
+		if request.method == 'POST':
+			# create a form instance and populate it with data from the request:
+			form = ItemForm(request.POST)
+			# check whether it's valid:
+			if form.is_valid():
+				# process the data in form.cleaned_data as required
+				form_name = form.cleaned_data['name']
+				form_description = form.cleaned_data['description']
+				form_link = form.cleaned_data['form_link']
+				form_price = form.cleaned_data['form_price']
+				new_item = Item(item_name=form_name, item_description=form_description, pub_date=timezone.now(), link=form_link, price=form_price)
+				print new_item
+				new_item.save()
+				# redirect to a new URL:
+				return HttpResponseRedirect('https://docs.djangoproject.com/en/1.10/topics/forms/')
+
+		#if a GET (or any other method) we'll create a blank form
+		else:
+			form = ItemForm()
+
+		return render(request, 'posts/form.html', {'form': form})'''

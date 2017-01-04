@@ -1,0 +1,10 @@
+<!--<form action="/forms/" method="post">
+    <label for="item">Item name: </label>
+    <input id="item" type="text" name="item" value="This is where the name goes">
+    <input type="submit" value="OK">
+</form>-->
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
