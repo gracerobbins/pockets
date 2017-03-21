@@ -5,6 +5,7 @@ from django.urls import reverse
 from .models import Item
 from django.utils import timezone
 from .forms import ItemForm
+import os
 
 
 class IndexView(generic.ListView):
@@ -29,7 +30,7 @@ def new_item(request):
 	# if this is a POST request we need to process the form data
 	if request.method == 'POST':
 		# create a form instance and populate it with data from the request:
-		form = ItemForm(request.POST)
+		form = ItemForm(request.POST, request.FILES)
 		# check whether it's valid:
 		if form.is_valid():
 			# process the data in form.cleaned_data as required
@@ -37,7 +38,9 @@ def new_item(request):
 			form_description = form.cleaned_data['description']
 			form_link = form.cleaned_data['form_link']
 			form_price = form.cleaned_data['form_price']
-			new_item = Item(item_name=form_name, item_description=form_description, pub_date=timezone.now(), link=form_link, price=form_price)
+			form_image = form.cleaned_data['image']
+		#	handle_uploaded_file(request.FILES['file'])
+			new_item = Item(item_name=form_name, item_description=form_description, pub_date=timezone.now(), link=form_link, price=form_price, image=form_image)
 			print new_item
 			new_item.save()
 			# redirect to a new URL:
@@ -78,3 +81,12 @@ def new_item(request):
 			form = ItemForm()
 
 		return render(request, 'posts/form.html', {'form': form})'''
+def handle_uploaded_file(f):
+    with open('some/file/name.txt', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+            
+def gallery(request):
+    path='../mysite/media/itemjielksmek'  # insert the path to your directory   
+    img_list =os.listdir(path)   
+    return render_to_response('detail.html', {'images': img_list})

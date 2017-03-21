@@ -3,5 +3,8 @@
 	<li>{{ item.item_description }}</li>
 	<li>published: {{ item.pub_date }}</li>
 	<li>price: ${{ item.price }}</li>
-	<li><a href={{item.link}}>click here to buy</li>
+	{% load static %}
+	<img src="/media/{{ item.item_name }}/image1.jpg" alt="My image"/>
+	<li><a href={{item.link}} target="_blank">click here to buy</li>
+</ul>
 

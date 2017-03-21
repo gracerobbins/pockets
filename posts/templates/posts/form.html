@@ -3,7 +3,7 @@
     <input id="item" type="text" name="item" value="This is where the name goes">
     <input type="submit" value="OK">
 </form>-->
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit" />
