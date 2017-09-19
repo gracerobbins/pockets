@@ -1,12 +1,64 @@
+
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'posts/home.css' %}" />
-<h1><a href="{% url 'posts:form' %}">Click here to add a new item</h1>
+<link rel="stylesheet" type="text/css" href="{% static 'posts/index.css' %}" />
+<div id='header'>
+	<h1>It has pockets!</hi>
+</div>
+
+<div class='divider'>
+</div>
+
+<div id='adding'>
+	<p>Have clothing with great pockets? Share it here:</p>
+	<button onclick="location.href='{% url 'posts:form' %}'" type="button" id="button">Add a new item</button>
+	<!--
+	<form id='button' action="{% url 'posts:form' %}">
+	  	 <input type="submit" value="Add a new item" />
+	</form>
+	-->
+</div>
+
+<div class='divider'>
+</div>
+
+<div id='content'>
+<div id='allposts'>
 {% if latest_post_list %}
-	<ul>
-	{% for item in latest_post_list %}
-		<li><a href="{% url 'posts:detail' item.id %}">{{ item.item_name }}</li><!make a bullet point with a url link to the polls:detail url for that question number>
-	{% endfor %}
-	</ul>
+	<div id="leftcolumn">
+		{% for item in latest_post_list|slice:":3" %}
+			<div class="leftpost">
+				<img src="/media/{{ item.item_name }}/image1.jpg" alt="No image"/>
+				<br/><a href="{% url 'posts:detail' item.id %}">{{ item.item_name }}
+			</div>
+		{% endfor %}
+	</div>
+	<div id='rightcolumn'>
+		{% for item in latest_post_list|slice:"3:6" %}
+			<div class="rightpost">
+				<img src="/media/{{ item.item_name }}/image1.jpg" alt="No image"/>
+				<br/><a href="{% url 'posts:detail' item.id %}">{{ item.item_name }}
+			</div>
+		{% endfor %}
+	</div>
 {% else %}
 	<p>There are no posts yet.</p>
 {% endif %}
+</div>
+</div>
+
+
+<!--
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'posts/index.css' %}" />
+<h1><a href="{% url 'posts:form' %}">Click here to add a new item</h1><br/>
+{% if latest_post_list %}
+	{% for item in latest_post_list %}
+		<div class="{% cycle 'row1' 'row2' %}" id='post'>
+			<img src="/media/{{ item.item_name }}/image1.jpg" alt="No image"/>
+			<br/><a href="{% url 'posts:detail' item.id %}">{{ item.item_name }}
+		</div>
+	{% endfor %}
+{% else %}
+	<p>There are no posts yet.</p>
+{% endif %}
+-->

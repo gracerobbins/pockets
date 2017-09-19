@@ -1,10 +1,25 @@
-<h1> item: {{ item.item_name }} </h1>
-<ul>
-	<li>{{ item.item_description }}</li>
-	<li>published: {{ item.pub_date }}</li>
-	<li>price: ${{ item.price }}</li>
-	{% load static %}
-	<img src="/media/{{ item.item_name }}/image1.jpg" alt="My image"/>
-	<li><a href={{item.link}} target="_blank">click here to buy</li>
-</ul>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'posts/detail.css' %}" />
 
+<div class='header'>
+	<h1> {{ item.item_name }} </h1>
+</div>
+
+<div id='divider'>
+</div>
+
+<div class='content'>
+	<div class='photos'>
+		<img src="/media/{{ item.item_name }}/image1.jpg" alt="My image"/>
+	</div>
+	
+	<div class='info'>
+		<p id='pub_date'>Item published {{ item.pub_date }}</p>
+		<p id='description'>Description:  {{ item.item_description }}</p>
+		<p id='price'>Price: ${{ item.price }}</p>
+		<div id='buying'>
+			<p>See this item on it's original commercial website:</p>
+			<button onclick="window.open('{{item.link}}')" type="button" id="button">Click here</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,115 @@
+body {
+background-color:#000000;
+}
+#content {
+background-color:#cccccc;
+}
+#header {
+background-color:#db128b;
+padding-left:9%;
+padding-top:0.01%;
+padding-bottom:0.01%;
+margin-left:0px;
+font-family: 'dancing'; font-weight:bold; font-size:40px;
+-webkit-font-smoothing: subpixel-antialiased;
+color:black;
+}
+.divider {
+background-color:lightblue;
+height:5px;
+border-top-width:2px;
+border-top-style:solid;
+border-top-color:#bbbbbb;
+border-bottom-width:2px;
+border-bottom-style:solid;
+border-bottom-color:#bbbbbb;
+}
+#adding {
+background-color:#fffffe;
+padding-left:9%;
+padding-top:0.5%;
+padding-bottom:0.5%;
+	font-family: 'libre';  font-weight:600; font-size:14px;
+}
+#adding p, button{
+display:inline-block;
+padding-left:0.5%;
+}
+
+#button {
+color:#c5107d;
+background-color:lightblue;
+border-radius:4px;
+border-color:#777777;
+  transition: all 0.5s;
+font-weight:bold;
+font-size:12px;
+border:2px solid #555555;
+margin-left:0.5%;
+}
+#button:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+  
+@font-face {
+    font-family: "dancing";
+    src: url("DancingScript-Regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "libre";
+    src: url("LibreBaskerville-Regular.woff") format('woff');
+}
+@font-face {
+    font-family: "vegur";
+    src: url("Vegur-Regular.woff") format('woff');
+}
+@font-face {
+    font-family: "source";
+    src: url("SourceSansPro-Regular.woff") format('woff');
+}
+
+
+
+img {
+	max-width:90%;
+	display:block;
+	margin:0 auto;
+	padding-top:5px;
+}
+#allposts {
+	display:block;
+	width:1200px;
+	margin:0 auto;
+	padding-top:15px;
+	padding-bottom:30px;
+}
+
+
+.leftpost {
+	background-color:white;
+	padding:20px;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+.rightpost {
+	background-color:white;
+	padding:20px;
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:30px;
+	margin-left:20px;
+}
+
+
+#leftcolumn {
+	display:inline-block;
+	width:48%;
+}
+#rightcolumn{
+	vertical-align:top;
+	display:inline-block;
+	width:48%;
+}

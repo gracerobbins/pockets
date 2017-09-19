@@ -1,10 +1,19 @@
-<!--<form action="/forms/" method="post">
-    <label for="item">Item name: </label>
+<!--
+<form action="/forms/" method="post">
+    <label id='item_name' for="item">Item name: </label>
     <input id="item" type="text" name="item" value="This is where the name goes">
     <input type="submit" value="OK">
-</form>-->
+</form>
+-->
+
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form }}
+    <ul class='allfields'>
+    	<p>Item name: </p><p id='name'>{{ form.name }}</p>
+    	<li id='description'>Description:{{form.description}}</li>
+    	<li id='price'>Price:{{form.form_price}}</li>
+    	<li id='link'>Provide a link to the commercial website:{{form.form_link}}</li>
+    	<li id='picture'>Upload a photo of the item:{{form.image}}</li>
+    </ul>
     <input type="submit" value="Submit" />
 </form>

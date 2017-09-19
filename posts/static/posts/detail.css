@@ -1,0 +1,93 @@
+body {
+background-color:black;
+}
+
+.header {
+	background-color:lightblue;
+	font-family: 'dancing';  font-weight:bold; font-size:30px;
+	padding-left:5%;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+@font-face {
+    font-family: "dancing";
+    src: url("DancingScript-Regular.woff") format('woff');
+
+}
+
+#divider {
+background-color:black;
+height:10px;
+}
+
+.content {
+height:90%;
+background-color:black;
+}
+
+@font-face {
+    font-family: "vegur";
+    src: url("Vegur-Regular.woff") format('woff');
+}
+@font-face {
+    font-family: "libre";
+    src: url("LibreBaskerville-Regular.woff") format('woff');
+}
+@font-face {
+    font-family: "source";
+    src: url("SourceSansPro-Regular.woff") format('woff');
+}
+.photos {
+display:inline-block;
+width:55%;
+	padding-top:3%;
+	padding-bottom:3%;
+	background-color:white;
+	height:85%;
+}
+img {
+	display:block;
+	margin:0 auto;
+}
+
+.info {
+background-color:#dddddd;
+display:inline-block;
+vertical-align:top;
+padding:4%;
+width:36%;
+height:80%;
+}
+
+.info p {
+	font-family: 'libre';  font-weight:bold; font-size:16px;
+}
+
+#description {
+word-wrap:break-word;
+}
+
+#buying {
+margin-top:90px;
+}
+
+#buying p{
+display:inline-block;
+}
+
+#button {
+display:inline-block;
+color:#c5107d;
+background-color:lightblue;
+border-radius:4px;
+border-color:#777777;
+transition: all 0.5s;
+font-weight:bold;
+font-size:12px;
+border:2px solid #555555;
+margin-left:0.5%;
+}
+#button:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
